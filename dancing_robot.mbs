@@ -1,0 +1,130 @@
+Sub Main
+	Debug.Clear
+	EraseTrajectories
+	SetTimeStep(0.1)
+	SetMobotPosition(0, 25,23, 90)
+	SetMobotPosition(1, 24,24, 135)
+	SetMobotPosition(2, 26,24, 45)
+	SetMobotPosition(3, 23,25, 180)
+	SetMobotPosition(4, 27,25, 0)
+	SetMobotPosition(5, 24,26, 225)
+	SetMobotPosition(6, 26,26, 315)
+	SetMobotPosition(7, 25,27,270)
+	i = 0
+	Do
+		If (i<25) 	 Then SetWheelSpeed(0, 60 ,60)
+		If (i<25) 	 Then SetWheelSpeed(1, 60 ,60)
+		If (i<25) 	 Then SetWheelSpeed(2, 60 ,60)
+		If (i<25) 	 Then SetWheelSpeed(3, 60 ,60)
+		If (i<25) 	 Then SetWheelSpeed(4, 60 ,60)
+		If (i<25) 	 Then SetWheelSpeed(5, 60 ,60)
+		If (i<25) 	 Then SetWheelSpeed(6, 60 ,60)
+		If (i<25) 	 Then SetWheelSpeed(7, 60 ,60)
+
+		If (i>=25) And (i<26) Then SetMobotPosition(0, GetMobotX(0), GetMobotY(0), GetMobotTheta(0)-90)
+		If (i>=25) And (i<26) Then SetMobotPosition(1, GetMobotX(1), GetMobotY(1), GetMobotTheta(1)-65)
+		If (i>=25) And (i<26) Then SetMobotPosition(2, GetMobotX(2), GetMobotY(2), GetMobotTheta(2)-65)
+		If (i>=25) And (i<26) Then SetMobotPosition(3, GetMobotX(3), GetMobotY(3), GetMobotTheta(3)-90)
+		If (i>=25) And (i<26) Then SetMobotPosition(4, GetMobotX(4), GetMobotY(4), GetMobotTheta(4)-90)
+		If (i>=25) And (i<26) Then SetMobotPosition(5, GetMobotX(5), GetMobotY(5), GetMobotTheta(5)-65)
+		If (i>=25) And (i<26) Then SetMobotPosition(6, GetMobotX(6), GetMobotY(6), GetMobotTheta(6)-65)
+		If (i>=25) And (i<26) Then SetMobotPosition(7, GetMobotX(7), GetMobotY(7), GetMobotTheta(7)-90)
+
+		If (i>=26) And (i<60) Then SetWheelSpeed(0, 82.5 ,70)
+		If (i>=26) And (i<60) Then SetWheelSpeed(1, 82.5 ,70)
+		If (i>=26) And (i<60) Then SetWheelSpeed(2, 82.5 ,70)
+		If (i>=26) And (i<60) Then SetWheelSpeed(3, 82.5 ,70)
+		If (i>=26) And (i<60) Then SetWheelSpeed(4, 82.5 ,70)
+		If (i>=26) And (i<60) Then SetWheelSpeed(5, 82.5 ,70)
+		If (i>=26) And (i<60) Then SetWheelSpeed(6, 82.5 ,70)
+		If (i>=26) And (i<60) Then SetWheelSpeed(7, 82.5 ,70)
+
+		If (i>=60) Then SetWheelSpeed(0, 0 ,0)
+		If (i>=60) Then SetWheelSpeed(1, 0 ,0)
+		If (i>=60) Then SetWheelSpeed(2, 0 ,0)
+		If (i>=60) Then SetWheelSpeed(3, 0 ,0)
+		If (i>=60) Then SetWheelSpeed(4, 0 ,0)
+		If (i>=60) Then SetWheelSpeed(5, 0 ,0)
+		If (i>=60) Then SetWheelSpeed(6, 0 ,0)
+		If (i>=60) Then SetWheelSpeed(7, 0 ,0)
+
+		
+
+		If (i>=60) And (i<61) Then SetMobotPosition(0, GetMobotX(0), GetMobotY(0), GetMobotTheta(0)-245)
+		If (i>=60) And (i<61) Then SetMobotPosition(3, GetMobotX(3), GetMobotY(3), GetMobotTheta(3)-245)
+		If (i>=60) And (i<61) Then SetMobotPosition(4, GetMobotX(4), GetMobotY(4), GetMobotTheta(4)-245)
+		If (i>=60) And (i<61) Then SetMobotPosition(7, GetMobotX(7), GetMobotY(7), GetMobotTheta(7)-245)
+
+		If (i>=61) And (i<225) Then SetWheelSpeed(0, 80 ,89.6)
+		If (i>=61) And (i<225) Then SetWheelSpeed(3, 80 ,89.6)
+		If (i>=61) And (i<225) Then SetWheelSpeed(4, 80 ,89.6)
+		If (i>=61) And (i<225) Then SetWheelSpeed(7, 80 ,89.6)
+
+		If (i>=225) And (i<226) Then SetMobotPosition(1, GetMobotX(1), GetMobotY(1), GetMobotTheta(1)+90)
+		If (i>=225) And (i<226) Then SetMobotPosition(2, GetMobotX(2), GetMobotY(2), GetMobotTheta(2)+90)
+		If (i>=225) And (i<226) Then SetMobotPosition(5, GetMobotX(5), GetMobotY(5), GetMobotTheta(5)+90)
+		If (i>=225) And (i<226) Then SetMobotPosition(6, GetMobotX(6), GetMobotY(6), GetMobotTheta(6)+90)
+
+		If (i>=226) And (i<425) Then SetWheelSpeed(1, 80 ,88)
+		If (i>=226) And (i<425) Then SetWheelSpeed(2, 80 ,88)
+		If (i>=226) And (i<425) Then SetWheelSpeed(5, 80 ,88)
+		If (i>=226) And (i<425) Then SetWheelSpeed(6, 80 ,88)
+
+		If (i>=425) And (i<426) Then SetMobotPosition(0, 25,23, 90)
+		If (i>=425) And (i<426) Then SetMobotPosition(1, 24,24, 135)
+		If (i>=425) And (i<426) Then SetMobotPosition(2, 26,24, 45)
+		If (i>=425) And (i<426) Then SetMobotPosition(3, 23,25, 180)
+		If (i>=425) And (i<426) Then SetMobotPosition(4, 27,25, 0)
+		If (i>=425) And (i<426) Then SetMobotPosition(5, 24,26, 225)
+		If (i>=425) And (i<426) Then SetMobotPosition(6, 26,26, 315)
+		If (i>=425) And (i<426) Then SetMobotPosition(7, 25,27,270)
+
+		If (i>=426) Then SetWheelSpeed(0, 0 ,0)
+		If (i>=426) Then SetWheelSpeed(2, 0 ,0)
+		If (i>=426) Then SetWheelSpeed(3, 0 ,0)
+		If (i>=426) Then SetWheelSpeed(4, 0 ,0)
+		If (i>=426) Then SetWheelSpeed(5, 0 ,0)
+		If (i>=426) Then SetWheelSpeed(6, 0 ,0)
+		If (i>=426) Then SetWheelSpeed(7, 0 ,0)
+
+		If (i>=426) And (i<550) Then SetWheelSpeed(0, 90 ,92)
+		If (i>=426) And (i<550) Then SetWheelSpeed(1, 90 ,92)
+		If (i>=426) And (i<550) Then SetWheelSpeed(2, 90 ,92)
+		If (i>=426) And (i<550) Then SetWheelSpeed(3, 90 ,92)
+		If (i>=426) And (i<550) Then SetWheelSpeed(4, 90 ,92)
+		If (i>=426) And (i<550) Then SetWheelSpeed(5, 90 ,92)
+		If (i>=426) And (i<550) Then SetWheelSpeed(6, 90 ,92)
+		If (i>=426) And (i<550) Then SetWheelSpeed(7, 90 ,92)
+
+		If (i>=550) And (i<800) Then SetWheelSpeed(0, 90 ,120)
+		If (i>=550) And (i<800) Then SetWheelSpeed(1, 90 ,120)
+		If (i>=550) And (i<800) Then SetWheelSpeed(2, 90 ,120)
+		If (i>=550) And (i<800) Then SetWheelSpeed(3, 90 ,120)
+		If (i>=550) And (i<800) Then SetWheelSpeed(4, 90 ,120)
+		If (i>=550) And (i<800) Then SetWheelSpeed(5, 90 ,120)
+		If (i>=550) And (i<800) Then SetWheelSpeed(6, 90 ,120)
+		If (i>=550) And (i<800) Then SetWheelSpeed(7, 90 ,120)
+
+		If (i>=800) And (i<1500) Then SetWheelSpeed(0, 90 ,100)
+		If (i>=800) And (i<1500) Then SetWheelSpeed(1, 90 ,100)
+		If (i>=800) And (i<1500) Then SetWheelSpeed(2, 90 ,100)
+		If (i>=800) And (i<1500) Then SetWheelSpeed(3, 90 ,100)
+		If (i>=800) And (i<1500) Then SetWheelSpeed(4, 90 ,100)
+		If (i>=800) And (i<1500) Then SetWheelSpeed(5, 90 ,100)
+		If (i>=800) And (i<1500) Then SetWheelSpeed(6, 90 ,100)
+		If (i>=800) And (i<1500) Then SetWheelSpeed(7, 90 ,100)
+
+		If (i>=1500) And (i<2000) Then SetWheelSpeed(0, 90 ,120)
+		If (i>=1500) And (i<2000) Then SetWheelSpeed(1, 90 ,120)
+		If (i>=1500) And (i<2000) Then SetWheelSpeed(2, 90 ,120)
+		If (i>=1500) And (i<2000) Then SetWheelSpeed(3, 90 ,120)
+		If (i>=1500) And (i<2000) Then SetWheelSpeed(4, 90 ,120)
+		If (i>=1500) And (i<2000) Then SetWheelSpeed(5, 90 ,120)
+		If (i>=1500) And (i<2000) Then SetWheelSpeed(6, 90 ,120)
+		If (i>=1500) And (i<2000) Then SetWheelSpeed(7, 90 ,120)
+
+
+		i = i + 1
+		StepForward
+	Loop Until(i = 1800)
+End Sub
