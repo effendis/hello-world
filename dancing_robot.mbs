@@ -114,14 +114,14 @@ Sub Main
 		If (i>=800) And (i<1500) Then SetWheelSpeed(6, 90 ,100)
 		If (i>=800) And (i<1500) Then SetWheelSpeed(7, 90 ,100)
 
-		If (i>=1500) And (i<2000) Then SetWheelSpeed(0, 90 ,120)
-		If (i>=1500) And (i<2000) Then SetWheelSpeed(1, 90 ,120)
-		If (i>=1500) And (i<2000) Then SetWheelSpeed(2, 90 ,120)
-		If (i>=1500) And (i<2000) Then SetWheelSpeed(3, 90 ,120)
-		If (i>=1500) And (i<2000) Then SetWheelSpeed(4, 90 ,120)
-		If (i>=1500) And (i<2000) Then SetWheelSpeed(5, 90 ,120)
-		If (i>=1500) And (i<2000) Then SetWheelSpeed(6, 90 ,120)
-		If (i>=1500) And (i<2000) Then SetWheelSpeed(7, 90 ,120)
+		If (i>=1500) And (i<1800) Then SetWheelSpeed(0, 90 ,120)
+		If (i>=1500) And (i<1800) Then SetWheelSpeed(1, 90 ,120)
+		If (i>=1500) And (i<1800) Then SetWheelSpeed(2, 90 ,120)
+		If (i>=1500) And (i<1800) Then SetWheelSpeed(3, 90 ,120)
+		If (i>=1500) And (i<1800) Then SetWheelSpeed(4, 90 ,120)
+		If (i>=1500) And (i<1800) Then SetWheelSpeed(5, 90 ,120)
+		If (i>=1500) And (i<1800) Then SetWheelSpeed(6, 90 ,120)
+		If (i>=1500) And (i<1800) Then SetWheelSpeed(7, 90 ,120)
 
 
 		i = i + 1
