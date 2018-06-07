@@ -1,0 +1,174 @@
+Const Pi = 3.1415926535898
+Const MAJU = 1, KANAN = 2, KIRI = 3, MAJU_BEBAS = 4, BERPUTAR = 5, BELOK3 = 6
+Dim State
+
+Sub Main
+	Debug.Clear
+	EraseTrajectories
+	SetTimeStep(0.3)
+	SetMobotPosition(0, 18, 1, 90)
+    SetMarkPosition(0, 18, 18)
+
+
+'Mobot berjalan dari posisi home ke mark position'
+State = MAJU
+	Do
+		s = MeasureRange(0,8,0)
+		Select Case State
+			Case MAJU
+				If JarakKeTarget<0.25 Then State = BERPUTAR
+				If s < 0.7 Then State = KANAN
+				If s > 0.87 Then State = KIRI
+			Case KANAN
+				If s > 0.7 Then State = MAJU
+			Case KIRI
+				If s < 0.87 Then State = MAJU
+			Case BERPUTAR
+				If Abs(beta)<0.05 Then State = MAJU_BEBAS
+			Case MAJU_BEBAS
+				If JarakKeTarget<0.05 Then State = SAMPAI
+			End Select
+
+		Select Case State
+			Case MAJU
+				vl = 10
+				vr = 10
+			Case KANAN
+				vl = 1.5
+				vr = 0
+			Case KIRI
+				vl = 0
+				vr = 1.5
+			Case BERPUTAR
+				Kpb = 0.05
+				w = Kpb*beta
+				vl = -w
+				vr = w
+			Case MAJU_BEBAS
+				Kpj = 10
+				v = Kpj*JarakKeTarget
+				vl = v
+				vr = v
+			Case SAMPAI
+				vl = 0
+				vr = 0
+				i = 0
+
+				State = BERHENTI
+		End Select
+
+		SetWheelSpeed(0, vl, vr)
+		Debug.Print(s)
+		StepForward
+
+	Loop Until State = BERHENTI
+
+
+
+'Mark position berada di posisi awal mobot'
+	SetMarkPosition(0, 18, 1)
+	SetWheelSpeed(0, 0, 0)
+
+
+
+'Mobot berjalan dari posisi mark ke home'
+State = MAJU
+	Do
+		s = MeasureRange(0,4,0)
+		Select Case State
+			Case MAJU
+				If JarakKeTarget<0.25 Then State = BERPUTAR
+				If s < 0.7 Then State = KIRI
+				If s > 0.87 Then State = KANAN
+			Case KIRI
+				If s > 0.7 Then State = MAJU
+			Case KANAN
+				If s < 0.87 Then State = MAJU
+			Case BERPUTAR
+				If Abs(beta)<0.05 Then State = MAJU_BEBAS
+			Case MAJU_BEBAS
+				If JarakKeTarget<0.05 Then State = SAMPAI
+			End Select
+
+		Select Case State
+			Case MAJU
+				vl = 10
+				vr = 10
+			Case KANAN
+				vl = 1.5
+				vr = 0
+			Case KIRI
+				vl = 0
+				vr = 1.5
+			Case BERPUTAR
+				Kpb = 0.05
+				w = Kpb*beta
+				vl = -w
+				vr = w
+			Case MAJU_BEBAS
+				Kpj = 10
+				v = Kpj*JarakKeTarget
+				vl = v
+				vr = v
+			Case SAMPAI
+				vl = 0
+				vr = 0
+				i = 0
+
+				State = BERHENTI
+		End Select
+
+		SetWheelSpeed(0, vl, vr)
+		Debug.Print(s)
+		StepForward
+
+	Loop Until State = BERHENTI
+	vl = 0
+	vr = 0
+
+End Sub
+Function beta As Double
+	xT = GetMarkX(0)
+	yT = GetMarkY(0)
+	x = GetMobotX(0)
+	y = GetMobotY(0)
+	tetha = GetMobotTheta(0)
+	If tetha>180 Then tetha = tetha-360
+	alpha = Atan2(-(yT-y), xT-x)*180/Pi
+	beta = alpha-tetha
+	While beta>=180
+		beta = beta-360
+	Wend
+	While beta<=-180
+		beta = beta+360
+	Wend
+End Function
+Function JarakKeTarget
+	xT = GetMarkX(0)
+	yT = GetMarkY(0)
+	x = GetMobotX(0)
+	y = GetMobotY(0)
+	JarakKeTarget = Sqr((x-xT)^2+(y-yT)^2)
+End Function
+Public Function Atan2(ByVal y As Double, ByVal x As Double) As Double
+	Dim theta As Double
+	If (Abs(x) < 0.0000001) Then
+		If (Abs(y) < 0.0000001) Then
+			theta = 0#
+		ElseIf (y > 0#) Then
+			theta = Pi/2
+		Else
+			theta = -Pi/2
+		End If
+	Else
+		theta = Atn(y / x)
+		If (x < 0) Then
+			If (y >= 0#) Then
+				theta = Pi + theta
+			Else
+				theta = theta - Pi
+			End If
+		End If
+	End If
+	Atan2 = theta
+End Function
